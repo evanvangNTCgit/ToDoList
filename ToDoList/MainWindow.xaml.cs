@@ -30,6 +30,10 @@ namespace ToDoList
 
         private void AddTask_Click(object sender, RoutedEventArgs e)
         {
+            var addingTaskWindow = new TaskAddWindow();
+            addingTaskWindow.Show();
+
+            /*
             if(TaskInput.Text != "" || TaskInput.Text != string.Empty || TaskInput.Text != null) 
             {
                 var taskBeingAdded = new Task(TaskInput.Text);
@@ -38,6 +42,7 @@ namespace ToDoList
 
                 TaskInput.Text = string.Empty;
             }
+            */
         }
 
         private void TasksList_SelectionChanged(object sender, SelectionChangedEventArgs e)
