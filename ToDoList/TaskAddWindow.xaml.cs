@@ -19,20 +19,31 @@ namespace ToDoList
     /// </summary>
     public partial class TaskAddWindow : Window
     {
+        Task taskToAdd;
+
         string Header {  get; set; }
         string Descripton { get; set; }
         int Priority {  get; set; }
 
-        public TaskAddWindow()
+        public TaskAddWindow(Task taskparam)
         {
             InitializeComponent();
+
+            taskToAdd = taskparam;
         }
 
         private void AddTask_Click(object sender, RoutedEventArgs e)
         {
             if (Header != null)
             {
-                var taskBeingAdded = new Task(Header, Priority, Descripton);
+                taskToAdd.TaskHeader = Header;
+                taskToAdd.Priority = Priority;
+                taskToAdd.Description = Descripton;
+
+                this.Close();
+            } else 
+            {
+                MessageBox.Show("Please add a header to your task");
             }
         }
 

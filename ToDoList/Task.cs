@@ -8,20 +8,28 @@ namespace ToDoList
 {
     public class Task
     {
-        string TaskHeader;
-        int Priority;
-        string Description;
+        string taskHeader;
+        int priority;
+        string description;
 
         public Task(string TaskName, int Priorityparam, string Descriptionparam) 
         {
-            TaskHeader = TaskName;
-            Priority = Priorityparam;
-            Description = Descriptionparam;
+            taskHeader = TaskName;
+            priority = Priorityparam;
+            description = Descriptionparam;
         }
+
+        public string TaskHeader {
+        get { return taskHeader; } set { taskHeader = value; }
+        }
+
+        public int Priority { get {return priority;} set { priority = value; } }
+
+        public string Description { get { return description;} set { description = value; } }
 
         public override string ToString()
         {
-            return TaskHeader.ToString();
+            return taskHeader.ToString();
         }
     }
 }

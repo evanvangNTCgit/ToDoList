@@ -28,19 +28,11 @@ namespace ToDoList
 
         private void AddTask_Click(object sender, RoutedEventArgs e)
         {
-            var addingTaskWindow = new TaskAddWindow();
-            addingTaskWindow.Show();
+            var taskSample = new Task("", 1, "Add a description");
+            var addingTaskWindow = new TaskAddWindow(taskSample);
+            addingTaskWindow.ShowDialog();
 
-            /*
-            if(TaskInput.Text != "" || TaskInput.Text != string.Empty || TaskInput.Text != null) 
-            {
-                var taskBeingAdded = new Task(TaskInput.Text);
-
-                TasksList.Items.Add(taskBeingAdded);
-
-                TaskInput.Text = string.Empty;
-            }
-            */
+            TasksList.Items.Add(taskSample);
         }
 
         private void TasksList_SelectionChanged(object sender, SelectionChangedEventArgs e)
