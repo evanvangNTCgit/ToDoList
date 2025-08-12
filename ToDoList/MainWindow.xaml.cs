@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System.Diagnostics.Eventing.Reader;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -21,14 +22,20 @@ namespace ToDoList
             InitializeComponent();
         }
 
+        bool userDoneTyping = false;
+
         private void TaskInput_TextChanged(object sender, TextChangedEventArgs e)
         {
-            
         }
 
         private void AddTask_Click(object sender, RoutedEventArgs e)
         {
+            if(TaskInput.Text != "" ||  TaskInput.Text != string.Empty || TaskInput.Text != null) 
+            {
+                var taskBeingAdded = new Task(TaskInput.Text);
 
+                TasksList.Items.Add(taskBeingAdded);
+            }
         }
 
         private void TasksList_SelectionChanged(object sender, SelectionChangedEventArgs e)
