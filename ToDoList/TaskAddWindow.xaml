@@ -11,15 +11,15 @@
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="0,0,0,10">
             <Label x:Name="HeaderLogo" Content="Header:" Width="60"/>
-            <TextBox x:Name="HeaderInput" Width="250"/>
+            <TextBox x:Name="HeaderInput" Width="250" LostFocus="HeaderInput_LostFocus"/>
         </StackPanel>
         <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="0,0,0,10">
             <Label x:Name="PriorityLogo" Content="Priority:" Width="60"/>
-            <TextBox x:Name="PriorityInput" Width="50"/>
+            <TextBox x:Name="PriorityInput" Width="50" TextChanged="PriorityInput_TextChanged" LostFocus="PriorityInput_LostFocus"/>
         </StackPanel>
         <StackPanel Grid.Row="2" Margin="0,0,0,10">
             <Label x:Name="DescriptionLogo" Content="Description:"/>
-            <TextBox x:Name="DescriptionInput" Height="60" AcceptsReturn="True"/>
+            <TextBox x:Name="DescriptionInput" Height="60" AcceptsReturn="True" TextChanged="DescriptionInput_TextChanged" LostFocus="DescriptionInput_LostFocus"/>
         </StackPanel>
         <Button Grid.Row="3" Content="Add Task" Width="100" HorizontalAlignment="Right" Click="AddTask_Click"/>
     </Grid>

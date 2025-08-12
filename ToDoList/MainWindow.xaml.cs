@@ -22,8 +22,6 @@ namespace ToDoList
             InitializeComponent();
         }
 
-        bool userDoneTyping = false;
-
         private void TaskInput_TextChanged(object sender, TextChangedEventArgs e)
         {
         }

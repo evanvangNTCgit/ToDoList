@@ -19,9 +19,78 @@ namespace ToDoList
     /// </summary>
     public partial class TaskAddWindow : Window
     {
+        string Header {  get; set; }
+        string Descripton { get; set; }
+        int Priority {  get; set; }
+
         public TaskAddWindow()
         {
             InitializeComponent();
+        }
+
+        private void AddTask_Click(object sender, RoutedEventArgs e)
+        {
+            if (Header != null)
+            {
+                var taskBeingAdded = new Task(Header, Priority, Descripton);
+            }
+        }
+
+        private void HeaderInput_LostFocus(object sender, RoutedEventArgs e)
+        {
+            Header = HeaderInput.Text;
+        }
+
+        private void PriorityInput_TextChanged(object sender, TextChangedEventArgs e)
+        {
+        }
+
+        private void PriorityInput_LostFocus(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+               bool valid = validPriorityInputCheck(PriorityInput.Text);
+
+                if (valid) 
+                {
+                    Priority = Int32.Parse(PriorityInput.Text);
+                }
+                else { }
+            } catch 
+            {
+                MessageBox.Show("Sorry an error occured");
+            }
+        }
+
+        public bool validPriorityInputCheck(string input) 
+        {
+            try 
+            {
+                int test = Int32.Parse(input);
+
+                if(test <= 0) 
+                {
+                    throw new Exception("Invalid Integer allowed");
+                }
+
+                return true;
+            } catch 
+            {
+                MessageBox.Show("Sorry you need to input a valid integer in the priority box 1 and up please!");
+
+                PriorityInput.Text = string.Empty;
+                return false;
+            }
+        }
+
+        private void DescriptionInput_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void DescriptionInput_LostFocus(object sender, RoutedEventArgs e)
+        {
+            Descripton = DescriptionInput.Text;
         }
     }
 }
