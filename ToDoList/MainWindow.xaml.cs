@@ -30,11 +30,13 @@ namespace ToDoList
 
         private void AddTask_Click(object sender, RoutedEventArgs e)
         {
-            if(TaskInput.Text != "" ||  TaskInput.Text != string.Empty || TaskInput.Text != null) 
+            if(TaskInput.Text != "" || TaskInput.Text != string.Empty || TaskInput.Text != null) 
             {
                 var taskBeingAdded = new Task(TaskInput.Text);
 
                 TasksList.Items.Add(taskBeingAdded);
+
+                TaskInput.Text = string.Empty;
             }
         }
 
@@ -45,7 +47,7 @@ namespace ToDoList
 
         private void RemoveTask_Click(object sender, RoutedEventArgs e)
         {
-
+            TasksList.Items.Remove(TasksList.SelectedItem);
         }
     }
 }
