@@ -17,6 +17,10 @@ namespace ToDoList
     /// </summary>
     public partial class MainWindow : Window
     {
+        /*
+         *  TODO: Should notify the user to not use the same two priority numbers.
+         *  Add a different (or maybe the same?) window for editing a task.
+         */
         public MainWindow()
         {
             InitializeComponent();
@@ -43,6 +47,52 @@ namespace ToDoList
         private void RemoveTask_Click(object sender, RoutedEventArgs e)
         {
             TasksList.Items.Remove(TasksList.SelectedItem);
+        }
+
+        public void ReOrderTasksList() 
+        {
+            var taskListToSort = new List<Task>();
+
+            foreach (Task task in TasksList.Items) 
+            {
+                taskListToSort.Add(task);
+            }
+
+            // Using bubbleSort.
+            var taskListSorted = SortTasks(taskListToSort);
+
+            TasksList.Items.Clear();
+
+            foreach(Task task in taskListSorted) 
+            {
+                TasksList.Items.Add((Task)task);
+            }
+        }
+
+        public List<Task> SortTasks(List<Task> taskList) 
+        {
+            for (int i = 0; i < taskList.Count; i++) 
+            {
+                for (int j = 0; j < taskList.Count - 1; j++) 
+                {
+                    if (taskList[j].Priority > taskList[i].Priority) 
+                    {
+                        var tempVar = taskList[j];
+                        taskList[j] = taskList[i];
+                        taskList[i] = tempVar;
+                    }
+                }
+            }
+
+            return taskList;
+        }
+
+        //ReOrder Tasks Button Click
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            ReOrderTasksList();
+
+            Console.WriteLine("Stop");
         }
     }
 }
