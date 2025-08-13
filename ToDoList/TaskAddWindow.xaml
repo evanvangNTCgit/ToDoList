@@ -15,7 +15,7 @@
         </StackPanel>
         <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="0,0,0,10">
             <Label x:Name="PriorityLogo" Content="Priority:" Width="60"/>
-            <TextBox x:Name="PriorityInput" Width="50" TextChanged="PriorityInput_TextChanged" LostFocus="PriorityInput_LostFocus"/>
+            <TextBox x:Name="PriorityInput" Width="140" TextChanged="PriorityInput_TextChanged" LostFocus="PriorityInput_LostFocus"/>
         </StackPanel>
         <StackPanel Grid.Row="2" Margin="0,0,0,10">
             <Label x:Name="DescriptionLogo" Content="Description:"/>

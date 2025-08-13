@@ -18,8 +18,7 @@ namespace ToDoList
     public partial class MainWindow : Window
     {
         /*
-         *  TODO: Should notify the user to not use the same two priority numbers.
-         *  Add a different (or maybe the same?) window for editing a task.
+         *  TODO: Add a different (or maybe the same?) window for editing a task.
          */
         public MainWindow()
         {
@@ -33,7 +32,16 @@ namespace ToDoList
         private void AddTask_Click(object sender, RoutedEventArgs e)
         {
             var taskSample = new Task("", 1, "Add a description");
-            var addingTaskWindow = new TaskAddWindow(taskSample);
+
+            // This code is ran to add into the addingTaskWindow for ensuring that the 
+            // User does not use the same two priority numbers (EX: two priority one tasks)
+            List<Task> tasks = new List<Task>();
+            foreach (Task task in TasksList.Items) 
+            {
+                tasks.Add(task);
+            }
+
+            var addingTaskWindow = new TaskAddWindow(taskSample, tasks);
             addingTaskWindow.ShowDialog();
 
             TasksList.Items.Add(taskSample);

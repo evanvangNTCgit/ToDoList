@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace ToDoList
 {
@@ -20,21 +21,23 @@ namespace ToDoList
     public partial class TaskAddWindow : Window
     {
         Task taskToAdd;
+        List<Task> tasks;
 
         string Header {  get; set; }
         string Descripton { get; set; }
         int Priority {  get; set; }
 
-        public TaskAddWindow(Task taskparam)
+        public TaskAddWindow(Task taskparam, List<Task> taskList)
         {
             InitializeComponent();
 
             taskToAdd = taskparam;
+            tasks = taskList;
         }
 
         private void AddTask_Click(object sender, RoutedEventArgs e)
         {
-            if (Header != null)
+            if (Header != null && Priority >= 1)
             {
                 taskToAdd.TaskHeader = Header;
                 taskToAdd.Priority = Priority;
@@ -43,7 +46,7 @@ namespace ToDoList
                 this.Close();
             } else 
             {
-                MessageBox.Show("Please add a header to your task");
+                MessageBox.Show("Please add a proper header and/or priority to your task");
             }
         }
 
@@ -60,9 +63,9 @@ namespace ToDoList
         {
             try
             {
-               bool valid = validPriorityInputCheck(PriorityInput.Text);
+               bool validParse = validPriorityInputCheck(PriorityInput.Text);
 
-                if (valid) 
+                if (validParse) 
                 {
                     Priority = Int32.Parse(PriorityInput.Text);
                 }
@@ -82,6 +85,16 @@ namespace ToDoList
                 if(test <= 0) 
                 {
                     throw new Exception("Invalid Integer allowed");
+                }
+
+                foreach (Task task in tasks)
+                {
+                    if (test == task.Priority) 
+                    {
+                        MessageBox.Show("Sorry You already gave a task this priority number.");
+                        PriorityInput.Text = "Please put in a valid num";
+                        return false;
+                    }
                 }
 
                 return true;
