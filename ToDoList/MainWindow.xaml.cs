@@ -18,9 +18,6 @@ namespace ToDoList
     /// </summary>
     public partial class MainWindow : Window
     {
-        /*
-         *  TODO: Add a different (or maybe the same?) window for editing a task.
-         */
         public MainWindow()
         {
             InitializeComponent();
@@ -106,16 +103,6 @@ namespace ToDoList
 
         private void editTask_Click(object sender, RoutedEventArgs e)
         {
-            /* 
-            Scratch the previous comment I think there will be another param for my taskAddWindow
-            It will be a bool parameter of Edit set to true for this method. And false in addTask method.
-
-            First this method will take the selected task and put it into a new taskEditWindow via a paremeter
-            Then that window should be able to edit the header, priority (MAKE SURE TO CHECK PRIORITY), and description
-             */
-            
-            // var taskSample = new Task("", 1, "Add a description");
-
             // This code is ran to add into the addingTaskWindow for ensuring that the 
             // User does not use the same two priority numbers (EX: two priority one tasks)
             List<Task> tasks = new List<Task>();
@@ -129,8 +116,6 @@ namespace ToDoList
 
             // Reloads the items in the window.
             TasksList.Items.Refresh();
-
-            // TasksList.Items.Add(taskSample);
         }
     }
 }
