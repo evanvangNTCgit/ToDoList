@@ -10,7 +10,6 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         <StackPanel Orientation="Horizontal" Grid.Row="0" Margin="0,0,0,10">
-            <TextBox x:Name="TaskInput" Width="250" Margin="0,0,10,0" TextChanged="TaskInput_TextChanged" />
             <Button Content="Add" Width="80" Click="AddTask_Click"/>
         </StackPanel>
         <ListBox x:Name="TasksList" Grid.Row="1" Margin="0,0,0,10" SelectionChanged="TasksList_SelectionChanged" />
