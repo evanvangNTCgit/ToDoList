@@ -29,7 +29,7 @@ namespace ToDoList
 
         public override string ToString()
         {
-            return $"Priority: {Priority.ToString()} {TaskHeader.ToString()}";
+            return $"Priority: {Priority.ToString()} {TaskHeader.ToString()} Desc: {description}";
         }
     }
 }

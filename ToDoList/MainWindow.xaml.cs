@@ -1,5 +1,6 @@
 ﻿using System.Diagnostics.Eventing.Reader;
 using System.Text;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -101,6 +102,16 @@ namespace ToDoList
             ReOrderTasksList();
 
             Console.WriteLine("Stop");
+        }
+
+        private void editTask_Click(object sender, RoutedEventArgs e)
+        {
+            /* I have decided to just make a new window to make it simpler in a production environment 
+                For editing between the two windows of add and edit.
+
+            First this method will take the selected task and put it into a new taskEditWindow via a paremeter
+            Then that window should be able to edit the header, priority (MAKE SURE TO CHECK PRIORITY), and description
+             */
         }
     }
 }

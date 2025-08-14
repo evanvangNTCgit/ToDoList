@@ -16,5 +16,6 @@
         <ListBox x:Name="TasksList" Grid.Row="1" Margin="0,0,0,10" SelectionChanged="TasksList_SelectionChanged" />
         <Button Content="Remove Selected" Grid.Row="2" Width="120" HorizontalAlignment="Left" Click="RemoveTask_Click"/>
         <Button x:Name="ReOrderTasks" Content="Reorder TasksList" Grid.Row="2" Width="120" HorizontalAlignment="Right" Click="Button_Click_1"/>
+        <Button x:Name="editTask" Content="Edit Task" Grid.Row="2" Width="120" HorizontalAlignment="Center" Click="editTask_Click"/>
     </Grid>
 </Window>
