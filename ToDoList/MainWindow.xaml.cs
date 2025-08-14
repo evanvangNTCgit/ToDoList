@@ -106,8 +106,9 @@ namespace ToDoList
 
         private void editTask_Click(object sender, RoutedEventArgs e)
         {
-            /* I have decided to just make a new window to make it simpler in a production environment 
-                For editing between the two windows of add and edit.
+            /* 
+            Scratch the previous comment I think there will be another param for my taskAddWindow
+            It will be a bool parameter of Edit set to true for this method. And false in addTask method.
 
             First this method will take the selected task and put it into a new taskEditWindow via a paremeter
             Then that window should be able to edit the header, priority (MAKE SURE TO CHECK PRIORITY), and description

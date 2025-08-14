@@ -32,6 +32,7 @@ namespace ToDoList
             InitializeComponent();
 
             taskToAdd = taskparam;
+
             tasks = taskList;
         }
 
