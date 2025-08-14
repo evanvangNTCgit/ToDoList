@@ -27,13 +27,29 @@ namespace ToDoList
         string Descripton { get; set; }
         int Priority {  get; set; }
 
-        public TaskAddWindow(Task taskparam, List<Task> taskList)
+        public TaskAddWindow(Task taskparam, List<Task> taskList, bool editing)
         {
             InitializeComponent();
 
             taskToAdd = taskparam;
 
-            tasks = taskList;
+            if(editing == true) 
+            {
+                Header = taskparam.TaskHeader;
+                Descripton = taskparam.Description;
+                Priority = taskparam.Priority;
+
+                HeaderInput.Text = taskparam.TaskHeader.ToString();
+                DescriptionInput.Text = taskparam.Description;
+                PriorityInput.Text = taskparam.Priority.ToString();
+
+                AddTask.Visibility = Visibility.Hidden;
+            } else 
+            {
+                EditTask.Visibility = Visibility.Hidden;
+            }
+
+                tasks = taskList;
         }
 
         private void AddTask_Click(object sender, RoutedEventArgs e)
@@ -116,6 +132,15 @@ namespace ToDoList
         private void DescriptionInput_LostFocus(object sender, RoutedEventArgs e)
         {
             Descripton = DescriptionInput.Text;
+        }
+
+        private void EditTask_Click(object sender, RoutedEventArgs e)
+        {
+            taskToAdd.Priority = Priority;
+            taskToAdd.Description = Descripton;
+            taskToAdd.TaskHeader = Header;
+
+            this.Close();
         }
     }
 }

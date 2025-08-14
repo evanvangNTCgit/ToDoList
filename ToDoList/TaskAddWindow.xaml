@@ -21,6 +21,7 @@
             <Label x:Name="DescriptionLogo" Content="Description:"/>
             <TextBox x:Name="DescriptionInput" Height="60" AcceptsReturn="True" TextChanged="DescriptionInput_TextChanged" LostFocus="DescriptionInput_LostFocus"/>
         </StackPanel>
-        <Button Grid.Row="3" Content="Add Task" Width="100" HorizontalAlignment="Right" Click="AddTask_Click"/>
+        <Button x:Name="AddTask" Grid.Row="3" Content="Add Task" Width="100" HorizontalAlignment="Right" Click="AddTask_Click"/>
+        <Button x:Name="EditTask" Grid.Row="3" Content="Edit Task" Width="100" HorizontalAlignment="Left" Click="EditTask_Click" />
     </Grid>
 </Window>

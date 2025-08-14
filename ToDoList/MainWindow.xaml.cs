@@ -42,7 +42,7 @@ namespace ToDoList
                 tasks.Add(task);
             }
 
-            var addingTaskWindow = new TaskAddWindow(taskSample, tasks);
+            var addingTaskWindow = new TaskAddWindow(taskSample, tasks, false);
             addingTaskWindow.ShowDialog();
 
             TasksList.Items.Add(taskSample);
@@ -113,6 +113,24 @@ namespace ToDoList
             First this method will take the selected task and put it into a new taskEditWindow via a paremeter
             Then that window should be able to edit the header, priority (MAKE SURE TO CHECK PRIORITY), and description
              */
+            
+            // var taskSample = new Task("", 1, "Add a description");
+
+            // This code is ran to add into the addingTaskWindow for ensuring that the 
+            // User does not use the same two priority numbers (EX: two priority one tasks)
+            List<Task> tasks = new List<Task>();
+            foreach (Task task in TasksList.Items)
+            {
+                tasks.Add(task);
+            }
+
+            var addingTaskWindow = new TaskAddWindow((Task)TasksList.SelectedItem, tasks, true);
+            addingTaskWindow.ShowDialog();
+
+            // Reloads the items in the window.
+            TasksList.Items.Refresh();
+
+            // TasksList.Items.Add(taskSample);
         }
     }
 }
